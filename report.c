@@ -42,12 +42,15 @@ report_result(void)
 		       power_consumed_cpu_avg, power_consumed_mem_avg);
 		printf("ACTIVE + IDLE power consumed: %.3lf + %.3lf\n",
 		       power_consumed_active_avg, power_consumed_idle_avg);
+		printf("power consumed cpu idle: %.3lf\n", power_consumed_cpu_idle / simtime);
+		printf("power consumed mem idle: %.3lf\n", power_consumed_mem_idle / simtime);
 		printf("utilzation: %.2lf%%\n", utilization);
 	}
 	else {
-		printf("%10s %.3lf %.3lf %.3lf %.3lf %.3lf %.3lf\n", policy->name, 
+		printf("%10s %.3lf %.3lf %.3lf %.3lf %.3lf %.3lf %.3lf %.3lf\n", policy->name, 
 		       power_consumed_avg, utilization, power_consumed_cpu_avg, power_consumed_mem_avg,
-		       power_consumed_active_avg, power_consumed_idle_avg);
+		       power_consumed_active_avg, power_consumed_idle_avg,
+		       power_consumed_cpu_idle / simtime, power_consumed_mem_idle / simtime);
 	}
 }
 
